@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.itextpdf.text.Document;
@@ -89,6 +90,12 @@ public class Main {
         	eseguiOperazioniSuContoInvestimento(contoInvestimento, scanner);
             System.out.println("Saldo finale Conto Investimento: " + contoInvestimento.getSaldo() + " euro");
             calcolaInteressiContoInvestimento(contoInvestimento);
+            try {
+				contoInvestimento.generaPDF();
+			} catch (DocumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
         
         
@@ -199,9 +206,9 @@ public class Main {
             double importo = Double.parseDouble(scanner.nextLine());
 
             if (tipoOperazione.equalsIgnoreCase("v")) {
-                contoInvestimento.versa(importo);
+                contoInvestimento.versa(importo, data);
             } else if (tipoOperazione.equalsIgnoreCase("p")) {
-                contoInvestimento.preleva(importo);
+                contoInvestimento.preleva(importo, data);
             }
         }
     }
@@ -240,7 +247,13 @@ public class Main {
 
     private static void calcolaInteressiContoInvestimento(ContoInvestimento contoInvestimento) {
         System.out.println("Calcolo degli interessi per il Conto Investimento:");
-        contoInvestimento.generaInteressi(365, 0.10);
+        Random generator = new Random ();
+        int tasso = generator.nextInt(101);
+        int negPos = generator.nextInt(2);
+        if (negPos == 0) {
+        	tasso *= -1;
+        }
+        contoInvestimento.generaInteressi(365, tasso);
         System.out.println("Nuovo saldo: " + contoInvestimento.getSaldo() + " euro");
     }
     
