@@ -24,15 +24,15 @@ public class Conto {
 		this.movimenti = new ArrayList<>();
 	}
 	
-	public void versa(double importo) {
+	public void versa(double importo , Date data) {
         saldo += importo;
-        Movimento movimento = new Movimento(new Date(), "Versamento", importo, saldo);
+        Movimento movimento = new Movimento(data, "Versamento", importo, saldo);
         movimenti.add(movimento);
     }
 
-    public void preleva(double importo) {
+    public void preleva(double importo, Date data) {
         saldo -= importo;
-        Movimento movimento = new Movimento(new Date(), "Prelievo", importo, saldo);
+        Movimento movimento = new Movimento(data, "Prelievo", importo, saldo);
         movimenti.add(movimento);
     }
 

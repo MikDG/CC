@@ -28,22 +28,22 @@ public class ContoCorrente {
 	}
 	
 	
-	public void preleva(double importo) {
+	public void preleva(double importo, Date data) {
 		if(importo <= saldo) {
 			saldo -= importo;
 			System.out.println("Hai prelevato " + importo + " euro. Il tuo nuovo saldo è: " + saldo + " euro.");
-			 Movimento movimento = new Movimento(new Date(), "Prelievo", importo, saldo);
+			 Movimento movimento = new Movimento(data, "Prelievo", importo, saldo);
 		        movimenti.add(movimento);
 		}else {
 			System.out.println("Saldo insufficiente");
 		}
 	}
 	
-	public void versa(double importo) {
+	public void versa(double importo, Date data) {
 		if(importo > 0 ) {
 			saldo += importo;
 			System.out.println("Hai versato " + importo + " euro. Il tuo nuovo saldo è: " + saldo + " euro.");
-			Movimento movimento = new Movimento(new Date(), "Versamento", importo, saldo);
+			Movimento movimento = new Movimento(data, "Versamento", importo, saldo);
 	        movimenti.add(movimento);
 			
 		}else {

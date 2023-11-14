@@ -79,6 +79,12 @@ public class Main {
         	eseguiOperazioniSuContoDeposito(contoDeposito, scanner);
             System.out.println("Saldo finale Conto Deposito: " + contoDeposito.getSaldo() + " euro");
             calcolaInteressiContoDeposito(contoDeposito);
+            try {
+				contoDeposito.generaPDF();
+			} catch (DocumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }else if(tipoOperazione.equals("ci")) {
         	eseguiOperazioniSuContoInvestimento(contoInvestimento, scanner);
             System.out.println("Saldo finale Conto Investimento: " + contoInvestimento.getSaldo() + " euro");
@@ -149,9 +155,9 @@ public class Main {
             double importo = Double.parseDouble(scanner.nextLine());
 
             if (tipoOperazione.equalsIgnoreCase("v")) {
-                conto.versa(importo);
+                conto.versa(importo, data);
             } else if (tipoOperazione.equalsIgnoreCase("p")) {
-                conto.preleva(importo);
+                conto.preleva(importo, data);
             }
         }
     }
@@ -172,9 +178,9 @@ public class Main {
             double importo = Double.parseDouble(scanner.nextLine());
 
             if (tipoOperazione.equalsIgnoreCase("v")) {
-                contoCorrente.versa(importo);
+                contoCorrente.versa(importo, data);
             } else if (tipoOperazione.equalsIgnoreCase("p")) {
-                contoCorrente.preleva(importo);
+                contoCorrente.preleva(importo, data);
             }
         }
     }
@@ -213,9 +219,9 @@ public class Main {
             double importo = Double.parseDouble(scanner.nextLine());
 
             if (tipoOperazione.equalsIgnoreCase("v")) {
-                contoDeposito.versa(importo);
+                contoDeposito.versa(importo, data);
             } else if (tipoOperazione.equalsIgnoreCase("p")) {
-                contoDeposito.preleva(importo);
+                contoDeposito.preleva(importo, data);
             }
         }
     }
