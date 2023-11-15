@@ -126,7 +126,7 @@ public class Main {
 
                 if (calendar.get(Calendar.YEAR) != 2021) {
                     System.out.println("Inserisci una data valida nell'anno 2021. Riprova.");
-                    data = null; // Resetta la data se l'anno non è valido
+                    data = null; 
                 }
             } catch (ParseException e) {
                 System.out.println("Data non valida. Riprova.");
@@ -135,14 +135,6 @@ public class Main {
 
         return data;
     }
-
-
-
-
-
-
-
-
 
 
 

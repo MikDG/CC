@@ -25,17 +25,17 @@ public class PDFGenerator {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-        // Intestazione
+     
         document.add(new Paragraph("Data: 31/12/2021 Titolare: " + conto.getTitolare()));
         document.add(new Paragraph("Movimenti"));
 
-        // Movimenti
+   
         for (Movimento movimento : conto.getMovimenti()) {
             document.add(new Paragraph(
                     sdf.format(movimento.getData()) + " - " + movimento.getTipoOperazione() + ", " + movimento.getQuantita() + ", Saldo parziale: " + movimento.getSaldoParziale()));
         }
 
-        // Saldo dopo le operazioni
+
         document.add(new Paragraph("Saldo dopo le operazioni: " + conto.getSaldo()));
 
         
@@ -52,23 +52,23 @@ public class PDFGenerator {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-        // Intestazione
+    
         document.add(new Paragraph("Data: 31/12/2021 Titolare: " + conto.getTitolare()));
         document.add(new Paragraph("Movimenti"));
 
-        // Movimenti
+  
         for (Movimento movimento : conto.getMovimenti()) {
             document.add(new Paragraph(
                     sdf.format(movimento.getData()) + " - " + movimento.getTipoOperazione() + ", " + movimento.getQuantita() + ", Saldo parziale: " + movimento.getSaldoParziale()));
         }
 
-        // Saldo dopo le operazioni
+    
         document.add(new Paragraph("Saldo dopo le operazioni: " + conto.getSaldo()));
 
-        // Interessi
+      
         document.add(new Paragraph("Interessi maturati al 31/12/2021 lordi = " + conto.getInteressi() ));
         System.out.println("Sono stati maturati: " + conto.getInteressi() + " euro di interessi Lordi.");
-        // Calcolare e aggiungere gli interessi al documento
+      
         
         double interessiNetti = conto.getInteressi() - (conto.getInteressi() * 0.26);
 
@@ -93,23 +93,23 @@ public class PDFGenerator {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-        // Intestazione
+       
         document.add(new Paragraph("Data: 31/12/2021 Titolare: " + conto.getTitolare()));
         document.add(new Paragraph("Movimenti"));
 
-        // Movimenti
+        
         for (Movimento movimento : conto.getMovimenti()) {
             document.add(new Paragraph(
                     sdf.format(movimento.getData()) + " - " + movimento.getTipoOperazione() + ", " + movimento.getQuantita() + ", Saldo parziale: " + movimento.getSaldoParziale()));
         }
 
-        // Saldo dopo le operazioni
+       
         document.add(new Paragraph("Saldo dopo le operazioni: " + conto.getSaldo()));
 
-        // Interessi
+      
         document.add(new Paragraph("Interessi maturati al 31/12/2021 lordi = " + conto.getInteressi() ));
         System.out.println("Sono stati maturati: " + conto.getInteressi() + " euro di interessi Lordi.");
-        // Calcolare e aggiungere gli interessi al documento
+
         
         double interessiNetti = conto.getInteressi() - (conto.getInteressi() * 0.26);
 
@@ -135,23 +135,22 @@ public class PDFGenerator {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-        // Intestazione
+        
         document.add(new Paragraph("Data: 31/12/2021 Titolare: " + conto.getTitolare()));
         document.add(new Paragraph("Movimenti"));
 
-        // Movimenti
+       
         for (Movimento movimento : conto.getMovimenti()) {
             document.add(new Paragraph(
                     sdf.format(movimento.getData()) + " - " + movimento.getTipoOperazione() + ", " + movimento.getQuantita() + ", Saldo parziale: " + movimento.getSaldoParziale()));
         }
 
-        // Saldo dopo le operazioni
+        
         document.add(new Paragraph("Saldo dopo le operazioni: " + conto.getSaldo()));
 
-        // Interessi
+        
         document.add(new Paragraph("Interessi maturati al 31/12/2021 lordi = " + conto.getInteressi() ));
         System.out.println("Sono stati maturati: " + conto.getInteressi() + " euro di interessi Lordi.");
-        // Calcolare e aggiungere gli interessi al documento
         
         double interessiNetti = conto.getInteressi() - (conto.getInteressi() * 0.26);
 
